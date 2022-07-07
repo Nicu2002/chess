@@ -8,8 +8,8 @@ const Table = () => {
     console.log(state);
     const dispatch = useDispatch();
 
-    const blackCell = (i, j) => <div className="black-zone" data-coord={`${i}${j}`}>{state['11']}</div>;
-    const whiteCell = (i, j) => <div className="white-zone" data-coord={`${i}${j}`}></div>;
+    const blackCell = (i, j) => <div className="black-zone" data-coord={`${i}${j}`}>{state[`${i}${j}`]}</div>;
+    const whiteCell = (i, j) => <div className="white-zone" data-coord={`${i}${j}`}>{state[`${i}${j}`]}</div>;
 
     const renderTableCells = () => {
         let cells = [];

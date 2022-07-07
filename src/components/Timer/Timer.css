@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+#timer {
+    width: 600px;
+    height: 200px;
+    background-color: gray;
+    margin-left: 200px;
+    display: flex;
+    padding: 0 20px;
+}
+
+.stop-timer {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: none;
+    background-color: #91221c;
+    cursor: pointer;
+}
+
+.player-time {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.timer-duration {
+    font-size: 60px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#timer div:first-child::after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    left: 100%;
+}

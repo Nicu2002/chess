@@ -1,0 +1,22 @@
+
+
+#table {
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-flow: row wrap;
+    border: 10px brown solid;
+}
+
+#table div {
+    width: 100px;
+    height: 100px;
+}
+
+.white-zone {
+    background-color: white;
+}
+
+.black-zone {
+    background-color: gray;
+}

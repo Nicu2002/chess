@@ -64,6 +64,10 @@ const Table = () => {
         return true;
     }
 
+    const checkColor = (i, j) => {
+        return blackFigures.includes(createCoord(i, j)) ? 'blackZone' : 'whiteZone';
+    }
+
     const onFigureClick = (i, j) => {
         if (figures[createCoord(i, j)] !== null && curentFigure !== createCoord(i, j)) {
             checkWays(i, j);
@@ -71,7 +75,9 @@ const Table = () => {
         if ((figures[createCoord(i, j)] === null || isEnemy(createCoord(i, j), curentFigure)) && curentFigure !== null && posibleMoves.includes(createCoord(i, j))) {
             dispatch(moveFigure({ start: curentFigure, finish: createCoord(i, j), figure: figures[curentFigure] }));
             dispatch(drawWays([[], null]));
-
+        }
+        if (isEnemy(createCoord(i, j), curentFigure)) {
+            dispatch(addFigureInZone({ zone: checkColor(i, j), figure: figures[createCoord(i, j)] }));
         }
     }
 

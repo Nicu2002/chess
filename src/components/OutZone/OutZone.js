@@ -1,8 +1,7 @@
-
 import { useSelector, useDispatch } from "react-redux";
 import { addFigureInZone } from "./outZoneSlice";
 
-const OutZone = () => {
+const OutZone = (props) => {
 
     const { whiteZone, blackZone } = useSelector(state => state.outZone);
     const dispatch = useDispatch();

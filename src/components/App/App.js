@@ -3,6 +3,7 @@ import './App.css';
 
 import Table from "../Table/Table";
 import Timer from "../Timer/Timer";
+import OutZone from '../OutZone/OutZone';
 
 
 const App = () => {
@@ -11,7 +12,8 @@ const App = () => {
         <div id="game">
             <Table />
             <div id="out-zone">
-                <Timer />
+                <OutZone/>
+                {/* <Timer /> */}
             </div>
         </div>
     );

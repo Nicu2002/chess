@@ -71,11 +71,12 @@ const tableSlice = createSlice({
     name: 'table',
     initialState,
     reducers: {
-        test(state) {
-            state['11'] = 'da';
+        moveFigure(state, action) {
+            state[action.payload.finish] = action.payload.figure;
+            state[action.payload.start] = null;
         }
     }
 });
 
-export const { test } = tableSlice.actions;
+export const { moveFigure } = tableSlice.actions;
 export default tableSlice.reducer;

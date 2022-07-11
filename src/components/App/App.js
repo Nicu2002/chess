@@ -9,10 +9,7 @@ const App = () => {
     return (
         <div id="game">
             <Table/>
-            <div id="out-zone">
-                <OutZone/>
-                {/* <Timer /> */}
-            </div>
+            <OutZone/>
         </div>
     );
 }

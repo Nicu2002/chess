@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    whiteZone: [],
-    blackZone: []
+    white: [],
+    black: []
 }
 
 const outZoneSlice = createSlice({
@@ -10,7 +10,7 @@ const outZoneSlice = createSlice({
     initialState,
     reducers: {
         addFigureInZone(state, action) {
-            state[action.payload.zone] = [...state.whiteZone, action.payload.figure];
+            state[action.payload.zone] = [...state[action.payload.zone], action.payload.figure];
         }
     }
 });

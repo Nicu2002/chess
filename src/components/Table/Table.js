@@ -3,7 +3,7 @@ import { v4 as uuid} from 'uuid';
 
 import './Table.css';
 
-import { drawWays, togglePermision } from './waysSlice';
+import { drawWays, togglePermision, endGame} from './waysSlice';
 import { moveFigure } from './tableSlice';
 import { addFigureInZone } from '../OutZone/outZoneSlice';
 
@@ -14,7 +14,7 @@ const blackFigures = ['♚', '♛', '♜', '♝', '♞', '♟'];
 const Table = () => {
     
     const figures = useSelector(state => state.table);
-    const { posibleMoves, curentFigure, colorPermited} = useSelector(state => state.posibleMoves);
+    const { posibleMoves, curentFigure, colorPermited, colorWin} = useSelector(state => state.posibleMoves);
     const { whiteZone, blackZone } = useSelector(state => state.outZone);
     const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const Table = () => {
     const blackCell = (i, j) =>
         <div
             key={uuid()}
-            className="black-zone"
+            className="black-zone cell"
             data-coord={`${i}${j}`}
             style={drawCell(i, j)}
             onClick={() => onFigureClick(i, j)}>
@@ -34,7 +34,7 @@ const Table = () => {
     const whiteCell = (i, j) =>
         <div
             key={uuid()}
-            className="white-zone"
+            className="white-zone cell"
             data-coord={`${i}${j}`}
             style={drawCell(i, j)}
             onClick={() => onFigureClick(i, j)}>
@@ -68,7 +68,7 @@ const Table = () => {
     const checkColor = (i, j) => {
         return blackFigures.includes(figures[createCoord(i, j)]) ? 'black' : 'white';
     }
-
+    
     const onFigureClick = (i, j) => {
         if (figures[createCoord(i, j)] !== null && curentFigure !== createCoord(i, j) && colorPermited == checkColor(i, j)) {
             checkWays(i, j);
@@ -80,6 +80,9 @@ const Table = () => {
         }
         if (isEnemy(createCoord(i, j), curentFigure)) {
             dispatch(addFigureInZone({ zone: checkColor(i, j), figure: figures[createCoord(i, j)] }));
+            if(['♔', '♚'].includes(figures[createCoord(i, j)])) {
+                dispatch(endGame(checkColor(i, j) == 'black' ? 'white' : 'black'));
+            }
         }
     }
 
@@ -347,12 +350,13 @@ const Table = () => {
                 break;
         }
     }
-
     const items = renderTableCells();
-    
+    const winState = <div id="end-game"><p id="win-header">{colorWin.toUpperCase()} WIN</p><button onClick={() => window.location.reload()}>PLAY AGAIN</button></div>;
+    const win = colorPermited === '' ? winState : null;
     return (
         <div id="table">
             {items}
+            {win}
         </div>
     );
 }

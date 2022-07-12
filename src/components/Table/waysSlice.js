@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     posibleMoves: [],
     curentFigure: null,
-    colorPermited: 'white'
+    colorPermited: 'white',
+    colorWin: ''
 };
 
 const waysSlice = createSlice({
@@ -16,9 +17,13 @@ const waysSlice = createSlice({
         },
         togglePermision(state) {
             state.colorPermited = state.colorPermited === 'white' ? 'black': 'white';
+        },
+        endGame(state, action) {
+            state.colorPermited = '';
+            state.colorWin = action.payload;
         }
     }
 });
 
-export const { drawWays, togglePermision} = waysSlice.actions;
+export const { drawWays, togglePermision, endGame} = waysSlice.actions;
 export default waysSlice.reducer;

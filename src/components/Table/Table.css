@@ -6,9 +6,10 @@
     display: flex;
     flex-flow: row wrap;
     border: 10px brown solid;
+    position: relative;
 }
 
-#table div {
+.cell {
     width: 10vh;
     height: 10vh;
     font-size: 7vh;
@@ -24,4 +25,32 @@
 
 .black-zone {
     background-color: gray;
+}
+
+#win-header {
+    text-shadow: 3px 3px 4px black;
+    color: green;
+    font-size: 12vh;
+    width: max-content;
+    margin: 0 0;
+}
+
+#end-game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#end-game button {
+    width: 20vh;
+    height: 5vh;
+    font-size: 2vh;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }

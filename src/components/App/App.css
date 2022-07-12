@@ -4,3 +4,7 @@
     height: 100vh;
     align-items: center;
 }
+
+body { 
+    overflow: hidden;
+}

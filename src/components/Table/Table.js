@@ -12,7 +12,7 @@ const whiteFigures = ['♔', '♕', '♖', '♗', '♘', '♙'];
 const blackFigures = ['♚', '♛', '♜', '♝', '♞', '♟'];
 
 const Table = () => {
-
+    
     const figures = useSelector(state => state.table);
     const { posibleMoves, curentFigure, colorPermited} = useSelector(state => state.posibleMoves);
     const { whiteZone, blackZone } = useSelector(state => state.outZone);

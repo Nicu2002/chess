@@ -1,19 +1,20 @@
 
 
 #table {
-    width: 816px;
-    height: 808px;
+    width: 80vh;
+    height: 80vh;
     display: flex;
     flex-flow: row wrap;
     border: 10px brown solid;
 }
 
 #table div {
-    width: 100px;
-    height: 100px;
-    font-size: 70px;
+    width: 10vh;
+    height: 10vh;
+    font-size: 7vh;
     text-align: center;
     border: 1px solid black;
+    box-sizing: border-box;
     cursor: pointer;
 }
 

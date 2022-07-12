@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 #timer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 600px;
     height: 200px;
     background-color: gray;

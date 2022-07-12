@@ -72,6 +72,7 @@ const Table = () => {
     const onFigureClick = (i, j) => {
         if (figures[createCoord(i, j)] !== null && curentFigure !== createCoord(i, j) && colorPermited == checkColor(i, j)) {
             checkWays(i, j);
+            
         }
         if ((figures[createCoord(i, j)] === null || isEnemy(createCoord(i, j), curentFigure)) && curentFigure !== null && posibleMoves.includes(createCoord(i, j))) {
             dispatch(moveFigure({ start: curentFigure, finish: createCoord(i, j), figure: figures[curentFigure] }));
